@@ -1,0 +1,45 @@
+@import "../variables";
+@import "../media_mixsin";
+
+.footer {
+  z-index: 2;
+  background-color: $secondary;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  font-size: rem(24);
+
+  &__data {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: rem(20);
+    gap: rem(10);
+  }
+
+  &__rss {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: #000000;
+    &:hover {
+      color: $main-hover;
+    }
+  }
+
+  &__year {
+  }
+
+  &__owner {
+  }
+
+  &__git {
+    text-decoration: none;
+    padding-right: rem(20);
+    transition: color 0.3s ease;
+    color: #000000;
+
+    &:hover {
+      color: $main-hover;
+    }
+  }
+}

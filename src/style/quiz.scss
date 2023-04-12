@@ -1,0 +1,399 @@
+@import "variables";
+@import "media_mixsin";
+
+.body-quiz {
+  position: relative;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &.body_dark:before {
+    background-color: rgba(13,45,37, 0.95);
+  }
+  @media (max-width: rem(450)) {
+    background: url("../assets/images/mobile-background-forest-quiz.png") no-repeat right top;
+  }
+  @media (max-width: rem(768)){
+    background: url("../assets/images/tablet-background-forest.png") no-repeat right;
+  }
+  @include _768 {
+    background: url("../assets/images/pc-background.png") no-repeat right;
+    min-height: 100%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(201, 229, 223, 0.95);
+    width: 100%;
+  }
+  &.body-quiz_win {
+    min-height: 100%;
+  }
+  &__gradient {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: rem(662);
+      top: 0;
+      background: linear-gradient(68.27deg, rgba(79, 30, 158, 0.2) 1.25%, rgba(217, 217, 217, 0) 30.74%);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 100vh;
+      width: rem(662);
+      top: 0;
+      background: linear-gradient(70.1deg, rgba(99, 221, 248, 0.2) 1.17%, rgba(217, 217, 217, 0) 66.79%);     }
+  }
+}
+
+.page {
+  &__quiz-round {
+
+    width: 100%;
+    margin: rem(20) 0;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    border-radius: rem(13);
+    background-color: $secondary;
+    @media (min-width: rem(1100)) {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.round {
+  &__element {
+    padding: rem(16) 0;
+    width: 33.33%;
+    font-size: rem(18);
+    transition: all 0.3s ease;
+
+    @media (min-width: rem(1220)) {
+      font-size: rem(24);
+    }
+    &:first-child {
+      border-top-left-radius: rem(13);
+    }
+    &:last-child {
+      border-bottom-right-radius: rem(13);
+    }
+    &:nth-child(3) {
+      border-top-right-radius: rem(13);
+    }
+    &:nth-child(4) {
+      border-bottom-left-radius: rem(13);
+    }
+    &_active {
+      font-weight: bold;
+      color: #ffffff;
+      background-color: $main-hover;
+    }
+    &.round__element_active {
+      background-color: $main-hover;
+      color: #ffffff;
+    }
+  }
+}
+
+.page {
+  &__quiz-question {
+    width: 100%;
+    background-color: $secondary;
+    border-radius: rem(13);
+    @include _768 {
+      display: flex;
+      gap: rem(65);
+    }
+  }
+}
+
+.question {
+  &__data {
+    padding: rem(10);
+    display: flex;
+    gap: rem(25);
+    @include _768 {
+      flex-direction: column-reverse;
+      margin: rem(19) 0 rem(25) rem(48);
+    }
+  }
+}
+
+.data {
+  &__img {
+    width: rem(100);
+    height: rem(100);
+    border-radius: rem(100);
+    @include _768 {
+      width: rem(150);
+      height: rem(150);
+    }
+  }
+
+  &__name {
+    font-size: rem(28);
+    @include _768 {
+      text-align: center;
+    }
+  }
+  &__music {
+    @include _768 {
+      padding-top: rem(79);
+    }
+  }
+}
+
+.list {
+  background-color: $secondary;
+  border-radius: rem(13);
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+  @include _1900 {
+    margin: 0;
+    width: clamp(19.688rem, -1.56rem + 44.21vw, 50.938rem);
+  }
+  &__item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: rem(24);
+    border-bottom: 3px solid $main-hover;
+    position: relative;
+    padding: rem(13) 0 rem(13) rem(80);
+    width: 100%;
+    &:before {
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 0;
+      left: rem(15);
+      transform: translate(50%, 50%);
+      content: "";
+      background-color: $inactiveButton;
+      width: rem(25);
+      height: rem(25);
+      border-radius: 50%;
+    }
+    &:nth-child(6){
+      border-bottom: none;
+    }
+  }
+  &__item.list__item_true {
+    color: $main-hover;
+    &:before {
+      background-color: $main-hover;
+    }
+  }
+  &__item.list__item_false {
+    color: #E11244;
+    &:before {
+      background-color: #E11244;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  background-color: $secondary;
+  border-radius: rem(13);
+  padding: rem(10);
+  flex-direction: column;
+  @include _1900 {
+    width: 100%;
+  }
+  &__data {
+    &-holder {
+      padding-left: rem(20);
+      &:last-child {
+        padding-bottom: rem(135);
+      }
+    }
+  }
+
+  &__top {
+    text-align: center;
+    display: flex;
+    gap: rem(5);
+    @media (max-width: rem(430)) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__img {
+    width: rem(210);
+    height: rem(160);
+    border-radius: rem(15);
+
+  }
+  &__name {
+    font-size: rem(20);
+    margin: 0 0 rem(10);
+  }
+  &__second-name {
+    font-size: rem(16);
+    margin: 0;
+    @media (max-width: rem(430)) {
+      margin-bottom: rem(20);
+
+    }
+  }
+
+  &__description {
+    text-align: center;
+    padding: rem(15) rem(15) rem(30) rem(15);
+    font-size: rem(16);
+    color: #000000;
+  }
+}
+
+.page__quiz{
+  &-btn {
+    text-align: center;
+    padding: rem(18) 0;
+    width: 100%;
+    border-radius: rem(13);
+    color: #000000;
+    border: transparent;
+    margin: rem(20) 0;
+    background-color: $secondary;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &.page__quiz-win-btn {
+      @media (min-width: rem(1100)) {
+        position: absolute;
+        z-index: 10;
+        background: $main-hover;
+        top: 85%;
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &:hover {
+      background-color: $main-hover;
+      color: #ffffff;
+    }
+    &.page__quiz-btn_disabled {
+      background-color: $inactiveButton;
+      &:hover {
+        background-color: $inactiveButton;
+        color: #000000;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.graditude {
+  display: block;
+  text-decoration: none;
+}
+
+.game__data {
+  @include _768{
+    display: flex;
+    justify-content: space-between;
+    gap: clamp(0.625rem, -1.156rem + 3.71vw, 3.25rem);
+    margin: rem(20) 0;
+  };
+}
+
+.game-end {
+  text-align: center;
+  padding: rem(40) rem(10) rem(20) rem(10);
+  @media (min-width: rem(1100)) {
+    height: rem(620);
+  }
+  &__title {
+    font-weight: 400;
+    font-size: rem(48);
+    padding: 0;
+    margin: 0;
+    @media (max-width: rem(390)) {
+      font-size: rem(40);
+    }
+    @media (min-width: rem(1100)) {
+      font-size: rem(64);
+    }
+  }
+  &__img {
+    height: rem(112);
+    width: 100%;
+    background: url("../assets/images/mobile-win-game.png") no-repeat;
+    background-position-x: right;
+    @media (min-width: rem(1100)) {
+      visibility: hidden;
+      display: none;
+      position: relative;
+    }
+  }
+  &__text {
+    font-size: rem(23);
+    @media (min-width: rem(1100)) {
+      font-size: rem(36);
+    }
+    &:before {
+      position: absolute;
+      content: "";
+      width: rem(245);
+      height: rem(200);
+      bottom: rem(220);
+      left: rem(100);
+      z-index: 3;
+      background: url("../assets/images/pc-winner-left.png");
+      visibility: hidden;
+      display: none;
+
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      width: rem(245);
+      height: rem(200);
+      bottom: rem(220);
+      right: rem(100);
+      z-index: 3;
+      background: url("../assets/images/pc-winner-left.png");
+      visibility: hidden;
+      display: none;
+    }
+    &:after,
+    &:before {
+      @media (min-width: rem(1100)) {
+        visibility: visible;
+        display: inherit;
+      }
+    }
+  }
+}
+
+.body-quiz_win-tablet {
+  background-image: url("../assets/images/tablet-win-bird.png");
+  background-repeat: no-repeat;
+  width: rem(256);
+  height: rem(256);
+  margin: 0 auto;
+  visibility: hidden;
+  display: none;
+  @include _768 {
+    visibility: visible;
+    display: inherit;
+  }
+  @media (min-width: 1100px) {
+    visibility: hidden;
+    display: none;
+  }
+}
+.game-end__text {
+  white-space: nowrap;
+}
