@@ -1,0 +1,202 @@
+.music {
+  &__player {
+    --seek-before-width: 0%;
+    --volume-before-width: 100%;
+    --buffered-width: 0%;
+    gap: rem(10);
+  }
+  &__control {
+    transition: all 0.3s ease;
+    background-image: url("../assets/images/player__play.svg");
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    @include _768 {
+      width: rem(95);
+      height: rem(95);
+    }
+    &_card {
+      width: 45px;
+      height: 45px;
+    }
+    &.music__control_pause {
+      background-image: url("../assets/images/player__pause.svg");
+    }
+  }
+
+  &__volume-control-wrapper {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: end;
+    &.music__volume-control-wrapper_card {
+      justify-content: start;
+      gap: 10px;
+    }
+  }
+  &__volume-btn {
+    background-image: url("../assets/images/player__sound.svg");
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+  &__volume-btn.volume-btn_mute {
+    background-image: url("../assets/images/player__mute.svg");
+  }
+  &__music-control-wrapper {
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include  _768 {
+      gap: rem(28);
+      margin: 0;
+    }
+    @media (min-width: rem(1900)) {
+      padding: 0 rem(10);
+    }
+    &.music__music-control-wrapper_card {
+      margin: 0;
+      gap: 10px ;
+      @media (max-width: 430px) {
+        width: 100%;
+      }
+    }
+  }
+  &__time-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    font-size: 24px;
+    color: $mainFrameColor;
+    &.music__time-wrapper_card {
+      font-size: 16px;
+    }
+  }
+  &__time-start {
+    bottom: 0;
+    left: clamp(5rem, 3.203rem + 6.39vw, 6.25rem);
+    position: absolute;
+    &.music__time-start_card {
+      top: -12px;
+      left: 60px;
+
+      @media (max-width: 430px) {
+        position: absolute;
+        top: -10px;
+        left: 55px;
+      }
+    }
+  }
+  &__time-end {
+    position: absolute;
+    bottom: 0;
+    right: rem(10);
+    @include _768 {
+    right: 0;
+  }
+    &.music__time-end_card {
+      top: -12px;
+      right: 0;
+      @include _768 {
+        @include adaptiveValue("left", 200, 540, 768, 1900)
+      }
+      left: clamp(8.313rem, -14.648rem + 84.45vw, 25.625rem);
+      @media (max-width: 430px) {
+        top: -10px;
+        right: 0;
+      }
+    }
+  }
+}
+
+//visual
+
+.music {
+  &__volume-control {
+    margin-right: rem(13);
+    position: relative;
+    width: 198px;
+    height: 15px;
+    cursor: pointer;
+    outline: none;
+    &:before {
+      width: var(--volume-before-width);
+      border-radius: 15px;
+      position: absolute;
+      content: "";
+      background-color: $main-hover;
+      height: 107%;
+      top: -1px;
+    }
+    &.music__volume-control_card {
+      width: clamp(5.625rem, -0.145rem + 26.38vw, 12.5rem);
+    }
+
+    &::-webkit-slider-thumb {
+      visibility: hidden;
+    }
+    &::-webkit-slider-runnable-track {
+      background: $mainFrameColor;
+      border-radius: 15px;
+    }
+    &::-moz-range-track {
+      background: $mainFrameColor;
+      border-radius: 15px;
+    }
+    &::-ms-fill-upper {
+      background: $mainFrameColor;
+      border-radius: 15px;
+    }
+  }
+  &__duration-control {
+    border-radius: 15px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    width: clamp(13.125rem, -8.121rem + 97.12vw, 38.438rem);
+    @include _768 {
+      width: clamp(18.125rem, -17.069rem + 73.32vw, 70rem);
+    }
+    &.music__duration-control_gallery-card {
+      width: 200px;
+      @include _768 {
+        width: 300px;
+      }
+    }
+    &.music__duration-control_card {
+      width: clamp(6.25rem, -18.617rem + 91.46vw, 25rem);
+      @media (max-width: 430px) {
+        width: 220px;
+      }
+      @include _768 {
+        @include adaptiveValue("width", 193, 510, 768, 1900)
+      }
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: var(--seek-before-width);
+      height: 100%;
+      background-color: $main-hover;
+      border-radius: 15px;
+    }
+    &::-webkit-slider-thumb {
+      visibility: hidden;
+    }
+    &::-webkit-slider-runnable-track {
+      background: $mainFrameColor;
+      border-radius: 15px;
+    }
+    &::-moz-range-track {
+      background: $mainFrameColor;
+      border-radius: 15px;
+    }
+    &::-ms-fill-upper {
+      background: $mainFrameColor;
+      border-radius: 15px;
+    }
+  }
+}

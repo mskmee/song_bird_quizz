@@ -1,0 +1,33 @@
+@import "fonts";
+@import "index";
+@import "components/header";
+@import "components/footer";
+@import "variables";
+@import "components/background-elements";
+@import "quiz";
+@import "components/audio-payer";
+@import "media_mixsin";
+@import "gallery";
+@import "components/birds";
+
+html,
+body {
+  font-family: "Roboto Regular", sans-serif;
+  max-width: rem(1900);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: rem(1690);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1 0 auto;
+}
+
+.body__background{
+  min-height: 100%;
+  overflow-x: hidden;
+}

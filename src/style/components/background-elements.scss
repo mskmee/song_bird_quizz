@@ -1,0 +1,101 @@
+@import "../media_mixsin";
+
+@keyframes blink {
+  0% {border-bottom-color: rgba(245, 243, 190, 0.9);}
+  50% {border-bottom-color: rgba(245, 243, 190, 0.1);}
+  100% {border-bottom-color: rgba(245, 243, 190, 0.9);}
+}
+
+.element {
+  position: relative;
+  &__sunny {
+    margin: 50px 0;
+    display: block;
+    position: absolute;
+    content: "";
+    background: rgba(245, 245, 245, 0.25);
+    mix-blend-mode: screen;
+    filter: blur(2px);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    &.element__sunny_dark {
+      width: 0;
+      height: 0;
+      margin-left: .9em;
+      margin-right: .9em;
+      margin-bottom: 1.2em;
+      border-right:  .3em solid transparent;
+      border-bottom: .7em  solid rgba(245, 243, 190, 0.9);
+      border-left:   .3em solid transparent;
+      font-size: 12px;
+      animation: blink 5s infinite;
+      &:before, &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: .6em;
+        left: -1em;
+        border-right:  1em solid transparent;
+        border-bottom: .7em  solid rgba(245, 243, 190, 0.9);
+        border-left:   1em solid transparent;
+        transform: rotate(-35deg);
+        animation: blink 5s infinite;
+      }
+      &:after {
+        transform: rotate(35deg);
+      }
+    }
+    &-first {
+      width: 47px;
+      height: 47px;
+      left: 107px;
+      top: 395px;
+      @include _768 {
+        @include adaptiveValue("left", 107, 1100, 768, 1900);
+        @include adaptiveValue("top", 500, 600, 768, 1900);
+      }
+    }
+    &-second {
+      width: 93px;
+      height: 93px;
+      left: 23px;
+      top: 322px;
+      @include _768 {
+        @include adaptiveValue("left", 23, 400, 768, 1900);
+        @include adaptiveValue("top", 322, 155, 768, 1900);
+      }
+    }
+    &-third {
+      width: 48px;
+      height: 48px;
+      left: 35px;
+      top: 636px;
+      @include _768 {
+        @include adaptiveValue("left", 35, 1700, 768, 1900);
+        @include adaptiveValue("top", 636, 300, 768, 1900);
+      }
+    }
+    &-forth {
+      width: 76px;
+      height: 76px;
+      left: 241px;
+      top: 702px;
+      @include _768 {
+        @include adaptiveValue("left", 241, 900, 768, 1900);
+        @include adaptiveValue("top", 702, 340, 768, 1900);
+      }
+    }
+    &-fives {
+      width: 52px;
+      height: 52px;
+      left: 285px;
+      top: 266px;
+      @include _768 {
+        @include adaptiveValue("left", 285, 1300, 768, 1900);
+        @include adaptiveValue("top", 266, 702, 768, 1900);
+      }
+    }
+  }
+}

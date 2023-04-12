@@ -1,0 +1,174 @@
+@import "variables";
+@import "media_mixsin";
+
+.body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @media (max-width: rem(450)) {
+    background: url("../assets/images/mobile-background-forest-quiz.png") no-repeat right top;
+    height: rem(1080);
+  }
+  @media (max-width: rem(768)){
+    background: url("../assets/images/tablet-background-forest.png") no-repeat;
+    height: rem(1150);
+  }
+  &.body_dark:before {
+    background-color: rgba(13,45,37, 0.95);
+  }
+  @include _768 {
+    background: url("../assets/images/pc-background.png") no-repeat right;
+    height: rem(1080);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(201, 229, 223, 0.95);
+    width: 100%;
+    height: 100%;
+  }
+  &__gradient {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: rem(662);
+      top: 0;
+      background: linear-gradient(68.27deg, rgba(79, 30, 158, 0.2) 1.25%, rgba(217, 217, 217, 0) 30.74%);
+      @include _768 {
+        width: 100%;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: rem(662);
+      top: 0;
+      background: linear-gradient(70.1deg, rgba(99, 221, 248, 0.2) 1.17%, rgba(217, 217, 217, 0) 66.79%);
+      @include _768 {
+        width: 100%;
+      }
+    }
+    &.body__gradient_dark:before {
+      background: linear-gradient(69.31deg, rgba(16, 16, 16, 0.2) 1.21%, rgba(217, 217, 217, 0) 44.08%);
+    }
+    &.body__gradient_dark:after {
+      background: linear-gradient(68.27deg, rgba(43, 13, 92, 0.25) 1.25%, rgba(217, 217, 217, 0) 30.74%)
+    }
+  }
+}
+
+.container {
+  padding: 0 rem(20);
+  z-index: 2;
+  @media (min-width: rem(1100)){
+    margin: 0 auto;
+  }
+}
+
+.body__background {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  background-image: url("../assets/images/tablet-birds-white.png");
+  &.body__background_dark:before {
+    background: rgba(63, 237, 206, 0.1);
+    mix-blend-mode: screen;
+  }
+  &.body__background:after {
+    background: rgba(50, 226, 226, 0.25);
+    mix-blend-mode: screen;
+  }
+  @include _768 {
+    background-repeat: repeat;
+  }
+  &::before {
+    content: "";
+    width: rem(1222);
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: rem(-350);
+    left: rem(-60);
+    background: rgba(255, 242, 125, 0.1);
+    @include _1900 {
+      left: rem(900);
+      top: rem(-500);
+      width: rem(1751);
+      height: 100%;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: rem(-250);
+    left: rem(170);
+    background: rgba(255, 242, 125, 0.1);
+    filter: blur(100px);
+    width: rem(729);
+    height: rem(729);
+    border-radius: 50%;
+    @include _768 {
+      top: 0;
+      left: rem(80);
+    }
+    @include _1900 {
+      width: rem(845);
+      height: rem(845);
+      top: rem(-100);
+      left: rem(1300);
+    }
+  }
+  &-elements {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    &.body__background-elements_dark:before {
+      background: rgba(111, 149, 245, 0.05);
+      mix-blend-mode: screen;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -10%;
+      background: rgba(111, 245, 237, 0.05);
+      filter: blur(100px);
+      width: rem(910);
+      height: 100%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      @include _768 {
+        bottom: rem(470);
+      };
+      @include _1900 {
+        left: rem(600);
+        width: 1375px;
+        top: rem(-200);
+      }
+    }
+  }
+}
+
+.page__welcome {
+  font-family: "Chiller";
+  font-size: rem(32);
+  color: $secondary;
+  text-align: center;
+}

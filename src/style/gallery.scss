@@ -1,0 +1,85 @@
+@import "media_mixsin";
+@import "variables";
+
+.body.body__gallery {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.page__gallery-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  @media (min-width: rem(940)) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: rem(20);
+  }
+  @media (min-width: rem(1470)) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: rem(30);
+    margin: rem(20);
+  }
+}
+
+.gallery {
+  &__card-item {
+    background-color: $secondary;
+    margin: rem(10) 0;
+    border-radius: rem(13);
+    padding: rem(10);
+    text-align: center;
+    transition: all 0.3s ease;
+    &.gallery__card-item_hidden {
+      opacity: 0;
+    }
+    @media (min-width: rem(800)) {
+      margin: rem(10) 0;
+    }
+    @media (min-width: rem(1100)) {
+    }
+    }
+  &__second-name {
+    margin-bottom: rem(8);
+  }
+  &__card-img {
+    width: rem(210);
+    height: rem(160);
+  }
+  &__card-top {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+    align-items: center;
+  }
+  &__card-description,
+  &__music-div {
+  }
+}
+
+.arrow {
+  position: fixed;
+  top: 0;
+  fill: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: rem(80);
+  height: rem(80);
+  transform: translate(0, calc(50vh - 50%));
+  opacity: 0.3;
+  &:hover {
+    fill: $main-hover;
+    opacity: 1;
+  }
+  &__left {
+    left: 0;
+  }
+  &__right {
+    right: 0;
+    @media (min-width: rem(1900)) {
+      left: 95%;
+    }
+  }
+}
